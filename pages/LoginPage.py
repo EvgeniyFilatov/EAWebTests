@@ -42,3 +42,4 @@ class LoginPageHelper(BasePage):
 
     def input_login(self, *values):
         self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys(values)
+        self.find_element(LoginPageLocators.LOGIN_BUTTON).click()
