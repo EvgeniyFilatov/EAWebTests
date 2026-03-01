@@ -40,7 +40,6 @@ class LoginPageHelper(BasePage):
     def click_login(self):
         self.attach_screenshot()
         self.find_element(LoginPageLocators.LOGIN_BUTTON).click()
-        time.sleep(0.2)
 
     @allure.step('Получаем ошибку')
     def get_error_text(self):
@@ -51,4 +50,3 @@ class LoginPageHelper(BasePage):
     def input_login(self, *values):
         self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys(values)
         self.attach_screenshot()
-        time.sleep(0.2)
