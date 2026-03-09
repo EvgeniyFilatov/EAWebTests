@@ -1,7 +1,8 @@
 import allure
-from pages.BasePage import BasePage
+from pages.BasePage import BasePageHelper
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
+
 
 class HelpPageLocators:
     SEARCH_FIELD = (By.XPATH, '//input[@type="search"]')
@@ -20,7 +21,7 @@ class HelpPageLocators:
     AD_CABINET_LINK = (By.XPATH, '//div[text()="Рекламный кабинет"]')
 
 
-class HelpPageHelpers(BasePage):
+class HelpPageHelper(BasePageHelper):
     def __init__(self, driver):
         self.driver = driver
         self.check_page()
@@ -55,5 +56,3 @@ class HelpPageHelpers(BasePage):
         ActionChains(self.driver).move_to_element(move_item).perform()
         self.attach_screenshot()
         move_item.click()
-
-
