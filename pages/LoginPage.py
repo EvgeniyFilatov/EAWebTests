@@ -1,6 +1,7 @@
 import allure
-from pages.BasePage import BasePage
+from pages.BasePage import BasePageHelper
 from selenium.webdriver.common.by import By
+
 
 class LoginPageLocators:
     LOGIN_TAB = (By.XPATH, '//*[@data-l="t,login_tab"]')
@@ -19,7 +20,7 @@ class LoginPageLocators:
     CANCEL_BUTTON = (By.XPATH, '//span[text()="Отмена"] ')
 
 
-class LoginPageHelper(BasePage):
+class LoginPageHelper(BasePageHelper):
     def __init__(self, driver):
         self.driver = driver
         self.check_page()
