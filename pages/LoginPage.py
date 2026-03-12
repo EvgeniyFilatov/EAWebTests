@@ -1,4 +1,5 @@
 import allure
+from selenium.webdriver import ActionChains
 from pages.BasePage import BasePageHelper
 from selenium.webdriver.common.by import By
 
@@ -71,3 +72,10 @@ class LoginPageHelper(BasePageHelper):
     def click_registration(self):
         self.attach_screenshot()
         self.find_element(LoginPageLocators.REGISTRATION_BUTTON).click()
+
+    @allure.step('Нажимаем "Не получается войти?"')
+    def click_forgot_button(self):
+        forgot_button = self.find_element(LoginPageLocators.FORGOT_BUTTON)
+        ActionChains(self.driver).move_to_element(forgot_button).perform()
+        forgot_button.click()
+        self.attach_screenshot()
