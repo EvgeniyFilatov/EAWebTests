@@ -3,6 +3,8 @@ from core.BaseTest import browser
 from pages.BasePage import BasePageHelper
 from pages.LoginPage import LoginPageHelper
 from pages.RecoveryPage import RecoveryPageHelper
+from pages.RecoveryByPhonePage import RecoveryByPhonePageHelper
+from pages.RecoveryByEmailPage import RecoveryByEmailPageHelper
 
 BASE_URL = 'https://ok.ru/'
 
@@ -24,3 +26,25 @@ def test_go_to_recovery_after_many_fails(browser):
 
     login_page.click_recovery()
     RecoveryPageHelper(browser)
+
+
+@allure.suite('Проверяем восстановление пользователя')
+@allure.title('Проверяем переход к восстановлению через телефон')
+def test_go_to_recovery_by_phone(browser):
+    BasePageHelper(browser).get_url(BASE_URL)
+    login_page = LoginPageHelper(browser)
+    login_page.click_forgot_button()
+    recovery_page = RecoveryPageHelper(browser)
+    recovery_page.click_phone_button()
+    RecoveryByPhonePageHelper(browser)
+
+
+@allure.suite('Проверяем восстановление пользователя')
+@allure.title('Проверяем переход у восстановлению через почту')
+def test_go_to_recovery_by_email(browser):
+    BasePageHelper(browser).get_url(BASE_URL)
+    login_page = LoginPageHelper(browser)
+    login_page.click_forgot_button()
+    recovery_page = RecoveryPageHelper(browser)
+    recovery_page.click_email_button()
+    RecoveryByEmailPageHelper(browser)
