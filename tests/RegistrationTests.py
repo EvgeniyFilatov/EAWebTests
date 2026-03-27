@@ -1,5 +1,5 @@
 import allure
-from core.BaseTest import browser
+import pytest
 from pages.BasePage import BasePageHelper
 from pages.LoginPage import LoginPageHelper
 from pages.RegistrationPage import RegistrationPageHelper
